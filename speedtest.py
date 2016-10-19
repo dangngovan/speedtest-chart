@@ -17,6 +17,11 @@ import oauth2client.client
 import oauth2client.tools
 import oauth2client.file
 
+from json import load
+from urllib2 import urlopen
+
+my_ip = load(urlopen('http://jsonip.com'))['ip']
+
 # Set constants
 DIRECTORY = os.path.dirname(os.path.realpath(__file__))
 SCOPES = "https://spreadsheets.google.com/feeds/"
@@ -83,6 +88,7 @@ def submit_into_spreadsheet(pingvthn,downloadvthn,uploadvthn,pingvthcm,downloadv
     # Prepare dictionary
     data = {
         "date": time.strftime("%m/%d/%Y %H:%M:%S"),
+        "ipaddress":my_ip,
         "pingvthn": pingvthn,
         "downloadvthn": downloadvthn,
         "uploadvthn": uploadvthn,
