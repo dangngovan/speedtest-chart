@@ -154,71 +154,115 @@ def main():
     # Run speedtest and store output
 
     print("Starting speed test VIETTEL HN... ")
-    speedtest_result_vthn = subprocess.check_output(["speedtest-cli", "--server", "9903", "--simple"],
+    try:
+        speedtest_result_vthn = subprocess.check_output(["speedtest-cli", "--server", "9903", "--simple"],
                                                      stderr=subprocess.STDOUT)
+        # Find download bandwidth
+        downloadvthn = DOWNLOAD_RE.search(speedtest_result_vthn).group(1)
+        # Find upload bandwidth
+        uploadvthn = UPLOAD_RE.search(speedtest_result_vthn).group(1)
+        # Find ping latency
+        pingvthn = PING_RE.search(speedtest_result_vthn).group(1)
+    except Exception:
+        downloadvthn = 0.0
+        # Find upload bandwidth
+        uploadvthn = 0.0
+        # Find ping latency
+        pingvthn = 0.0
     print("Starting VTHN speed finished!")
 
-    # Find download bandwidth
-    downloadvthn = DOWNLOAD_RE.search(speedtest_result_vthn).group(1)
-    # Find upload bandwidth
-    uploadvthn = UPLOAD_RE.search(speedtest_result_vthn).group(1)
-    # Find ping latency
-    pingvthn = PING_RE.search(speedtest_result_vthn).group(1)
+
 
     print("Starting speed test VIETTEL HCM... ")
-    speedtest_result_vthcm = subprocess.check_output(["speedtest-cli", "--server", "2427", "--simple"], stderr=subprocess.STDOUT)
+    try:
+        speedtest_result_vthcm = subprocess.check_output(["speedtest-cli", "--server", "2427", "--simple"], stderr=subprocess.STDOUT)
+        # Find download bandwidth
+        downloadvthcm = DOWNLOAD_RE.search(speedtest_result_vthcm).group(1)
+        # Find upload bandwidth
+        uploadvthcm = UPLOAD_RE.search(speedtest_result_vthcm).group(1)
+        # Find ping latency
+        pingvthcm = PING_RE.search(speedtest_result_vthcm).group(1)
+    except Exception:
+        downloadvthcm = 0.0
+        # Find upload bandwidth
+        uploadvthcm = 0.0
+        # Find ping latency
+        pingvthcm = 0.0
     print("Starting VTHCM speed finished!")
 
-    # Find download bandwidth
-    downloadvthcm = DOWNLOAD_RE.search(speedtest_result_vthcm).group(1)
-    # Find upload bandwidth
-    uploadvthcm = UPLOAD_RE.search(speedtest_result_vthcm).group(1)
-    # Find ping latency
-    pingvthcm = PING_RE.search(speedtest_result_vthcm).group(1)
+
 
     print("Starting speed test VNPT-NET HANOI... ")
-    speedtest_result_vnpthn = subprocess.check_output(["speedtest-cli", "--server", "6085", "--simple"], stderr=subprocess.STDOUT)
+    try:
+        speedtest_result_vnpthn = subprocess.check_output(["speedtest-cli", "--server", "6085", "--simple"], stderr=subprocess.STDOUT)
+        # Find download bandwidth
+        downloadvnpthn = DOWNLOAD_RE.search(speedtest_result_vnpthn).group(1)
+        # Find upload bandwidth
+        uploadvnpthn = UPLOAD_RE.search(speedtest_result_vnpthn).group(1)
+        # Find ping latency
+        pingvnpthn = PING_RE.search(speedtest_result_vnpthn).group(1)
+    except Exception:
+        downloadvnpthn = 0.0
+        # Find upload bandwidth
+        uploadvnpthn = 0.0
+        # Find ping latency
+        pingvnpthn = 0.0
     print("Starting VNPTHN speed finished!")
 
-    # Find download bandwidth
-    downloadvnpthn = DOWNLOAD_RE.search(speedtest_result_vnpthn).group(1)
-    # Find upload bandwidth
-    uploadvnpthn = UPLOAD_RE.search(speedtest_result_vnpthn).group(1)
-    # Find ping latency
-    pingvnpthn = PING_RE.search(speedtest_result_vnpthn).group(1)
-
     print("Starting speed test VNPT-NET HCM... ")
-    speedtest_result_vnpthcm = subprocess.check_output(["speedtest-cli", "--server", "6106", "--simple"], stderr=subprocess.STDOUT)
+    try:
+        speedtest_result_vnpthcm = subprocess.check_output(["speedtest-cli", "--server", "6106", "--simple"], stderr=subprocess.STDOUT)
+        # Find download bandwidth
+        downloadvnpthcm = DOWNLOAD_RE.search(speedtest_result_vnpthcm).group(1)
+        # Find upload bandwidth
+        uploadvnpthcm = UPLOAD_RE.search(speedtest_result_vnpthcm).group(1)
+        # Find ping latency
+        pingvnpthcm = PING_RE.search(speedtest_result_vnpthcm).group(1)
+    except Exception:
+        downloadvnpthcm = 0.0
+        # Find upload bandwidth
+        uploadvnpthcm = 0.0
+        # Find ping latency
+        pingvnpthcm = 0.0
     print("Starting VNPT-NET HCM speed finished!")
 
-    # Find download bandwidth
-    downloadvnpthcm = DOWNLOAD_RE.search(speedtest_result_vnpthcm).group(1)
-    # Find upload bandwidth
-    uploadvnpthcm = UPLOAD_RE.search(speedtest_result_vnpthcm).group(1)
-    # Find ping latency
-    pingvnpthcm = PING_RE.search(speedtest_result_vnpthcm).group(1)
+
 
     print("Starting speed test NetNam Corp HANOI... ")
-    speedtest_result_netnamhn = subprocess.check_output(["speedtest-cli", "--server", "5774", "--simple"], stderr=subprocess.STDOUT)
+    try:
+        speedtest_result_netnamhn = subprocess.check_output(["speedtest-cli", "--server", "5774", "--simple"], stderr=subprocess.STDOUT)
+        # Find download bandwidth
+        downloadnetnamhn = DOWNLOAD_RE.search(speedtest_result_netnamhn).group(1)
+        # Find upload bandwidth
+        uploadnetnamhn = UPLOAD_RE.search(speedtest_result_netnamhn).group(1)
+        # Find ping latency
+        pingnetnamhn = PING_RE.search(speedtest_result_netnamhn).group(1)
+    except Exception:
+        downloadnetnamhn = 0.0
+        # Find upload bandwidth
+        uploadnetnamhn = 0.0
+        # Find ping latency
+        pingnetnamhn = 0.0
     print("Starting NetNam Corp HANOI speed finished!")
 
-    # Find download bandwidth
-    downloadnetnamhn = DOWNLOAD_RE.search(speedtest_result_netnamhn).group(1)
-    # Find upload bandwidth
-    uploadnetnamhn = UPLOAD_RE.search(speedtest_result_netnamhn).group(1)
-    # Find ping latency
-    pingnetnamhn = PING_RE.search(speedtest_result_netnamhn).group(1)
+
 
     print("Starting speed test  CMC HANOI... ")
-    speedtest_result_cmchn = subprocess.check_output(["speedtest-cli", "--server", "6342", "--simple"], stderr=subprocess.STDOUT)
+    try:
+        speedtest_result_cmchn = subprocess.check_output(["speedtest-cli", "--server", "6342", "--simple"], stderr=subprocess.STDOUT)
+        # Find download bandwidth
+        downloadcmchn = DOWNLOAD_RE.search(speedtest_result_cmchn).group(1)
+        # Find upload bandwidth
+        uploadcmchn = UPLOAD_RE.search(speedtest_result_cmchn).group(1)
+        # Find ping latency
+        pingcmchn = PING_RE.search(speedtest_result_cmchn).group(1)
+    except Exception:
+        downloadcmchn = 0.0
+        # Find upload bandwidth
+        uploadcmchn = 0.0
+        # Find ping latency
+        pingcmchn = 0.0
     print("Starting CMC HANOI speed finished!")
-
-    # Find download bandwidth
-    downloadcmchn = DOWNLOAD_RE.search(speedtest_result_cmchn).group(1)
-    # Find upload bandwidth
-    uploadcmchn = UPLOAD_RE.search(speedtest_result_cmchn).group(1)
-    # Find ping latency
-    pingcmchn = PING_RE.search(speedtest_result_cmchn).group(1)
 
     print("Starting speed test VTC HANOI... ")
     try:
@@ -231,133 +275,195 @@ def main():
         pingvtchn = PING_RE.search(speedtest_result_vtchn).group(1)
 
     except Exception:
-        downloadvtchn = 0
-        uploadvtchn = 0
-        pingvtchn = 0
-        
+        downloadvtchn = 0.0
+        uploadvtchn = 0.0
+        pingvtchn = 0.0
     print("Starting VTC HANOI speed finished!")
 
     print("Starting speed test MOBIFONE HANOI... ")
-    speedtest_result_mobihn = subprocess.check_output(["speedtest-cli", "--server", "9174", "--simple"], stderr=subprocess.STDOUT)
+    try:
+        speedtest_result_mobihn = subprocess.check_output(["speedtest-cli", "--server", "9174", "--simple"], stderr=subprocess.STDOUT)
+        # Find download bandwidth
+        downloadmobihn = DOWNLOAD_RE.search(speedtest_result_mobihn).group(1)
+        # Find upload bandwidth
+        uploadmobihn = UPLOAD_RE.search(speedtest_result_mobihn).group(1)
+        # Find ping latency
+        pingmobihn = PING_RE.search(speedtest_result_mobihn).group(1)
+    except Exception:
+        downloadmobihn = 0.0
+        uploadmobihn = 0.0
+        pingmobihn = 0.0
     print("Starting VNPTHN speed finished!")
-
-    # Find download bandwidth
-    downloadmobihn = DOWNLOAD_RE.search(speedtest_result_mobihn).group(1)
-    # Find upload bandwidth
-    uploadmobihn = UPLOAD_RE.search(speedtest_result_mobihn).group(1)
-    # Find ping latency
-    pingmobihn = PING_RE.search(speedtest_result_mobihn).group(1)
 
     print("Starting speed test SAIGON POSTEL CORP HANOI... ")
-    speedtest_result_sgphn = subprocess.check_output(["speedtest-cli", "--server", "7215", "--simple"], stderr=subprocess.STDOUT)
+    try:
+        speedtest_result_sgphn = subprocess.check_output(["speedtest-cli", "--server", "7215", "--simple"], stderr=subprocess.STDOUT)
+        # Find download bandwidth
+        downloadsgphn = DOWNLOAD_RE.search(speedtest_result_sgphn).group(1)
+        # Find upload bandwidth
+        uploadsgphn = UPLOAD_RE.search(speedtest_result_sgphn).group(1)
+        # Find ping latency
+        pingsgphn = PING_RE.search(speedtest_result_sgphn).group(1)
+    except Exception:
+        downloadsgphn = 0.0
+        uploadsgphn = 0.0
+        pingsgphn = 0.0
     print("Starting VNPTHN speed finished!")
-
-    # Find download bandwidth
-    downloadsgphn = DOWNLOAD_RE.search(speedtest_result_sgphn).group(1)
-    # Find upload bandwidth
-    uploadsgphn = UPLOAD_RE.search(speedtest_result_sgphn).group(1)
-    # Find ping latency
-    pingsgphn = PING_RE.search(speedtest_result_sgphn).group(1)
 
     print("Starting speed test VNPT-NET Da Nang... ")
-    speedtest_result_vnptdn = subprocess.check_output(["speedtest-cli", "--server", "6102", "--simple"], stderr=subprocess.STDOUT)
+    try:
+        speedtest_result_vnptdn = subprocess.check_output(["speedtest-cli", "--server", "6102", "--simple"], stderr=subprocess.STDOUT)
+        # Find download bandwidth
+        downloadvnptdn = DOWNLOAD_RE.search(speedtest_result_vnptdn).group(1)
+        # Find upload bandwidth
+        uploadvnptdn = UPLOAD_RE.search(speedtest_result_vnptdn).group(1)
+        # Find ping latency
+        pingvnptdn = PING_RE.search(speedtest_result_vnptdn).group(1)
+    except Exception:
+        downloadvnptdn = 0.0
+        uploadvnptdn = 0.0
+        pingvnptdn = 0.0
     print("Starting VNPTHN speed finished!")
 
-    # Find download bandwidth
-    downloadvnptdn = DOWNLOAD_RE.search(speedtest_result_vnptdn).group(1)
-    # Find upload bandwidth
-    uploadvnptdn = UPLOAD_RE.search(speedtest_result_vnptdn).group(1)
-    # Find ping latency
-    pingvnptdn = PING_RE.search(speedtest_result_vnptdn).group(1)
-
-
     print("Starting speed test VIETTEL Da Nang... ")
-    speedtest_result_vtdn = subprocess.check_output(["speedtest-cli", "--server", "10040", "--simple"], stderr=subprocess.STDOUT)
+    try:
+        speedtest_result_vtdn = subprocess.check_output(["speedtest-cli", "--server", "10040", "--simple"], stderr=subprocess.STDOUT)
+        # Find download bandwidth
+        downloadvtdn = DOWNLOAD_RE.search(speedtest_result_vtdn).group(1)
+        # Find upload bandwidth
+        uploadvtdn = UPLOAD_RE.search(speedtest_result_vtdn).group(1)
+        # Find ping latency
+        pingvtdn = PING_RE.search(speedtest_result_vtdn).group(1)
+    except Exception:
+        downloadvtdn = 0.0
+        # Find upload bandwidth
+        uploadvtdn = 0.0
+        # Find ping latency
+        pingvtdn = 0.0
     print("Starting VIETTEL Da Nang speed finished!")
 
-    # Find download bandwidth
-    downloadvtdn = DOWNLOAD_RE.search(speedtest_result_vtdn).group(1)
-    # Find upload bandwidth
-    uploadvtdn = UPLOAD_RE.search(speedtest_result_vtdn).group(1)
-    # Find ping latency
-    pingvtdn = PING_RE.search(speedtest_result_vtdn).group(1)
-
     print("Starting speed test SAIGON POSTEL CORP. Da Nang... ")
-    speedtest_result_sgpdn = subprocess.check_output(["speedtest-cli", "--server", "6758", "--simple"], stderr=subprocess.STDOUT)
+    try:
+        speedtest_result_sgpdn = subprocess.check_output(["speedtest-cli", "--server", "6758", "--simple"], stderr=subprocess.STDOUT)
+        # Find download bandwidth
+        downloadsgpdn = DOWNLOAD_RE.search(speedtest_result_sgpdn).group(1)
+        # Find upload bandwidth
+        uploadsgpdn = UPLOAD_RE.search(speedtest_result_sgpdn).group(1)
+        # Find ping latency
+        pingvsgpdn= PING_RE.search(speedtest_result_sgpdn).group(1)
+    except Exception:
+        downloadsgpdn = 0.0
+        # Find upload bandwidth
+        uploadsgpdn = 0.0
+        # Find ping latency
+        pingvsgpdn = 0.0
     print("Starting SAIGON POSTEL CORP. Da Nang speed finished!")
 
-    # Find download bandwidth
-    downloadsgpdn = DOWNLOAD_RE.search(speedtest_result_sgpdn).group(1)
-    # Find upload bandwidth
-    uploadsgpdn = UPLOAD_RE.search(speedtest_result_sgpdn).group(1)
-    # Find ping latency
-    pingvsgpdn= PING_RE.search(speedtest_result_sgpdn).group(1)
+
 
     print("Starting speed test FPT Telecom (Ho Chi Minh... ")
-    speedtest_result_fpthcm = subprocess.check_output(["speedtest-cli", "--server", "2515", "--simple"], stderr=subprocess.STDOUT)
+    try:
+        speedtest_result_fpthcm = subprocess.check_output(["speedtest-cli", "--server", "2515", "--simple"], stderr=subprocess.STDOUT)
+        # Find download bandwidth
+        downloadfpthcm = DOWNLOAD_RE.search(speedtest_result_fpthcm).group(1)
+        # Find upload bandwidth
+        uploadfpthcm = UPLOAD_RE.search(speedtest_result_fpthcm).group(1)
+        # Find ping latency
+        pingfpthcm = PING_RE.search(speedtest_result_fpthcm).group(1)
+    except Exception:
+        downloadfpthcm = 0.0
+        # Find upload bandwidth
+        uploadfpthcm = 0.0
+        # Find ping latency
+        pingfpthcm = 0.0
     print("Starting FPT Telecom (Ho Chi Minh speed finished!")
 
-    # Find download bandwidth
-    downloadfpthcm = DOWNLOAD_RE.search(speedtest_result_fpthcm).group(1)
-    # Find upload bandwidth
-    uploadfpthcm = UPLOAD_RE.search(speedtest_result_fpthcm).group(1)
-    # Find ping latency
-    pingfpthcm = PING_RE.search(speedtest_result_fpthcm).group(1)
 
     print("Starting speed test NetNam (Ho Chi Minh... ")
-    speedtest_result_netnamhcm = subprocess.check_output(["speedtest-cli", "--server", "3381", "--simple"], stderr=subprocess.STDOUT)
+    try:
+        speedtest_result_netnamhcm = subprocess.check_output(["speedtest-cli", "--server", "3381", "--simple"], stderr=subprocess.STDOUT)
+        # Find download bandwidth
+        downloadnetnamhcm = DOWNLOAD_RE.search(speedtest_result_netnamhcm).group(1)
+        # Find upload bandwidth
+        uploadnetnamhcm = UPLOAD_RE.search(speedtest_result_netnamhcm).group(1)
+        # Find ping latency
+        pingnetnamhcm = PING_RE.search(speedtest_result_netnamhcm).group(1)
+    except Exception:
+        downloadnetnamhcm = 0.0
+        # Find upload bandwidth
+        uploadnetnamhcm = 0.0
+        # Find ping latency
+        pingnetnamhcm = 0.0
     print("Starting NetNam (Ho Chi Minh speed finished!")
 
-    # Find download bandwidth
-    downloadnetnamhcm = DOWNLOAD_RE.search(speedtest_result_netnamhcm).group(1)
-    # Find upload bandwidth
-    uploadnetnamhcm = UPLOAD_RE.search(speedtest_result_netnamhcm).group(1)
-    # Find ping latency
-    pingnetnamhcm = PING_RE.search(speedtest_result_netnamhcm).group(1)
-
     print("Starting speed test SAIGON POSTEL CORP. (Ho Chi Minh ... ")
-    speedtest_result_sgphcm = subprocess.check_output(["speedtest-cli", "--server", "6378", "--simple"], stderr=subprocess.STDOUT)
+    try:
+        speedtest_result_sgphcm = subprocess.check_output(["speedtest-cli", "--server", "6378", "--simple"], stderr=subprocess.STDOUT)
+        # Find download bandwidth
+        downloadsgphcm = DOWNLOAD_RE.search(speedtest_result_sgphcm).group(1)
+        # Find upload bandwidth
+        uploadsgphcm = UPLOAD_RE.search(speedtest_result_sgphcm).group(1)
+        # Find ping latency
+        pingsgphcm = PING_RE.search(speedtest_result_sgphcm).group(1)
+    except Exception:
+        downloadsgphcm = 0.0
+        # Find upload bandwidth
+        uploadsgphcm = 0.0
+        # Find ping latency
+        pingsgphcm = 0.0
     print("Starting SAIGON POSTEL CORP. (Ho Chi Minh speed finished!")
 
-    # Find download bandwidth
-    downloadsgphcm = DOWNLOAD_RE.search(speedtest_result_sgphcm).group(1)
-    # Find upload bandwidth
-    uploadsgphcm = UPLOAD_RE.search(speedtest_result_sgphcm).group(1)
-    # Find ping latency
-    pingsgphcm = PING_RE.search(speedtest_result_sgphcm).group(1)
-
     print("Starting speed test MOBIFONE (Ho Chi Minh ... ")
-    speedtest_result_mobihcm = subprocess.check_output(["speedtest-cli", "--server", "9331", "--simple"], stderr=subprocess.STDOUT)
+    try:
+        speedtest_result_mobihcm = subprocess.check_output(["speedtest-cli", "--server", "9331", "--simple"], stderr=subprocess.STDOUT)
+        # Find download bandwidth
+        downloadmobihcm = DOWNLOAD_RE.search(speedtest_result_mobihcm).group(1)
+        # Find upload bandwidth
+        uploadmobihcm = UPLOAD_RE.search(speedtest_result_mobihcm).group(1)
+        # Find ping latency
+        pingmobihcm = PING_RE.search(speedtest_result_mobihcm).group(1)
+    except Exception:
+        downloadmobihcm = 0.0
+        # Find upload bandwidth
+        uploadmobihcm = 0.0
+        # Find ping latency
+        pingmobihcm = 0.0
     print("Starting MOBIFONE (Ho Chi Minh speed finished!")
 
-    # Find download bandwidth
-    downloadmobihcm  = DOWNLOAD_RE.search(speedtest_result_mobihcm).group(1)
-    # Find upload bandwidth
-    uploadmobihcm = UPLOAD_RE.search(speedtest_result_mobihcm).group(1)
-    # Find ping latency
-    pingmobihcm = PING_RE.search(speedtest_result_mobihcm).group(1)
-
     print("Starting speed test VTC DIGICOM Ho Chi Minh City ... ")
-    speedtest_result_vtchcm = subprocess.check_output(["speedtest-cli", "--server", "8158", "--simple"], stderr=subprocess.STDOUT)
+    try:
+        speedtest_result_vtchcm = subprocess.check_output(["speedtest-cli", "--server", "8158", "--simple"], stderr=subprocess.STDOUT)
+        # Find download bandwidth
+        downloadvtchcm = DOWNLOAD_RE.search(speedtest_result_vtchcm).group(1)
+        # Find upload bandwidth
+        uploadvtchcm = UPLOAD_RE.search(speedtest_result_vtchcm).group(1)
+        # Find ping latency
+        pingvtchcm = PING_RE.search(speedtest_result_vtchcm).group(1)
+    except Exception:
+        downloadvtchcm = 0.0
+        # Find upload bandwidth
+        uploadvtchcm = 0.0
+        # Find ping latency
+        pingvtchcm = 0.0
     print("Starting VTC DIGICOM Ho Chi Minh City speed finished!")
 
-    # Find download bandwidth
-    downloadvtchcm = DOWNLOAD_RE.search(speedtest_result_vtchcm).group(1)
-    # Find upload bandwidth
-    uploadvtchcm = UPLOAD_RE.search(speedtest_result_vtchcm).group(1)
-    # Find ping latency
-    pingvtchcm = PING_RE.search(speedtest_result_vtchcm).group(1)
-
     print("Starting speed test SCTV Co.Ltd (Ho Chi Minh City ... ")
-    speedtest_result_sctvhcm = subprocess.check_output(["speedtest-cli", "--server", "8491", "--simple"], stderr=subprocess.STDOUT)
+    try:
+        speedtest_result_sctvhcm = subprocess.check_output(["speedtest-cli", "--server", "8491", "--simple"], stderr=subprocess.STDOUT)
+        # Find download bandwidth
+        downloadsctvhcm = DOWNLOAD_RE.search(speedtest_result_sctvhcm).group(1)
+        # Find upload bandwidth
+        uploadsctvhcm = UPLOAD_RE.search(speedtest_result_sctvhcm).group(1)
+        # Find ping latency
+        pingsctvhcm = PING_RE.search(speedtest_result_sctvhcm).group(1)
+    except Exception:
+        downloadsctvhcm = 0.0
+        # Find upload bandwidth
+        uploadsctvhcm = 0.0
+        # Find ping latency
+        pingsctvhcm = 0.0
     print("Starting SCTV Co.Ltd (Ho Chi Minh City speed finished!")
 
-    # Find download bandwidth
-    downloadsctvhcm = DOWNLOAD_RE.search(speedtest_result_sctvhcm).group(1)
-    # Find upload bandwidth
-    uploadsctvhcm = UPLOAD_RE.search(speedtest_result_sctvhcm).group(1)
-    # Find ping latency
-    pingsctvhcm = PING_RE.search(speedtest_result_sctvhcm).group(1)
 
 
     # Write to spreadsheet
