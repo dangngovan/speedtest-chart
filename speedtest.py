@@ -223,18 +223,19 @@ def main():
     print("Starting speed test VTC HANOI... ")
     try:
         speedtest_result_vtchn = subprocess.check_output(["speedtest-cli", "--server", "8156", "--simple"], stderr=subprocess.STDOUT)
+        # Find download bandwidth
+        downloadvtchn = DOWNLOAD_RE.search(speedtest_result_vtchn).group(1)
+        # Find upload bandwidth
+        uploadvtchn = UPLOAD_RE.search(speedtest_result_vtchn).group(1)
+        # Find ping latency
+        pingvtchn = PING_RE.search(speedtest_result_vtchn).group(1)
+
     except Exception:
         downloadvtchn = 0
         uploadvtchn = 0
         pingvtchn = 0
+        
     print("Starting VTC HANOI speed finished!")
-
-    # Find download bandwidth
-    downloadvtchn = DOWNLOAD_RE.search(speedtest_result_vtchn).group(1)
-    # Find upload bandwidth
-    uploadvtchn = UPLOAD_RE.search(speedtest_result_vtchn).group(1)
-    # Find ping latency
-    pingvtchn = PING_RE.search(speedtest_result_vtchn).group(1)
 
     print("Starting speed test MOBIFONE HANOI... ")
     speedtest_result_mobihn = subprocess.check_output(["speedtest-cli", "--server", "9174", "--simple"], stderr=subprocess.STDOUT)
