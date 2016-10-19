@@ -221,7 +221,12 @@ def main():
     pingcmchn = PING_RE.search(speedtest_result_cmchn).group(1)
 
     print("Starting speed test VTC HANOI... ")
-    speedtest_result_vtchn = subprocess.check_output(["speedtest-cli", "--server", "8156", "--simple"], stderr=subprocess.STDOUT)
+    try:
+        speedtest_result_vtchn = subprocess.check_output(["speedtest-cli", "--server", "8156", "--simple"], stderr=subprocess.STDOUT)
+    except Exception:
+        downloadvtchn = 0
+        uploadvtchn = 0
+        pingvtchn = 0
     print("Starting VTC HANOI speed finished!")
 
     # Find download bandwidth
