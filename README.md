@@ -1,6 +1,6 @@
 speedtest-chart
 ======================
-Script Python đẩy dữ kết qủa check network (Sử dụng speedtest-cli) về Google Docs spreasheet. Các thông số gồm upload, download và latency
+Script Python đẩy dữ kết qủa check network (Sử dụng speedtest-cli) về Google Docs spreadsheet. Các thông số gồm upload, download và latency
 
 
 Có thể xem demo tại: https://docs.google.com/spreadsheets/d/1QvV6POBVBXuq5iXSOLNd5bwgd5To8FMuvsrSfvY7Nuk/pubchart?oid=1973311741&format=interactive
