@@ -143,6 +143,9 @@ def submit_into_spreadsheet(pingvthn,downloadvthn,uploadvthn,pingvthcm,downloadv
     }
 
     print(data)
+    with open('/var/log/vccloudnet.log', 'a') as outfile:
+	json.dump(data, outfile)
+        outfile.write('\n')
 
     entry = gdata.spreadsheets.data.ListEntry()
     entry.from_dict(data)
